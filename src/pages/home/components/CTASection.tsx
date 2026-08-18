@@ -75,7 +75,7 @@ export default function CTASection() {
               alt=""
               aria-hidden="true"
               className="w-full h-full object-cover"
-              src="https://work-and-share.vercel.app/img/photo-007.png"
+              src="/img/photo-007.png"
               style={{ objectPosition: '50% 55%' }}
             />
             <div className="absolute inset-0 bg-background-50/92" />

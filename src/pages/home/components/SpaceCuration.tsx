@@ -2,9 +2,14 @@ import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import Reveal from './Reveal';
 
+interface PricePlan {
+  months: number;
+  price: string;
+}
+
 interface Room {
   id: string;
-  group: 'private' | 'shared';
+  group: 'private' | 'shared' | 'floor2';
   tagEn: string;
   title: string;
   description: string;
@@ -12,9 +17,13 @@ interface Room {
   icon: string;
   price: string;
   period: string;
+  plans?: PricePlan[];
   tags: string[];
   features: string[];
   featured?: boolean;
+  eyebrow?: string;
+  badge?: string;
+  variant?: 'open' | 'booth';
 }
 
 const rooms: Room[] = [
@@ -26,8 +35,12 @@ const rooms: Room[] = [
     description: '완벽한 차단, 깊어지는 몰입',
     image: 'https://work-and-share.vercel.app/img/photo-013.png',
     icon: 'ri-door-lock-line',
-    price: '₩420,000',
+    price: '₩300,000',
     period: '/ 월 (고정 전용 룸)',
+    plans: [
+      { months: 3, price: '₩350,000' },
+      { months: 6, price: '₩300,000' },
+    ],
     tags: ['24시간 전용', '사업자주소'],
     features: ['1인 독립 전용 룸 24시간', '사업자 주소 등록 가능', '무제한 음료 제공', '회의실 월 8시간 제공', '우편물 수령 서비스'],
     featured: true,
@@ -40,8 +53,12 @@ const rooms: Room[] = [
     description: '1인실보다 여유롭게, 나만의 속도로',
     image: '/room-1.5-person.jpg',
     icon: 'ri-door-line',
-    price: '₩550,000',
+    price: '₩350,000',
     period: '/ 월 (고정 전용 룸)',
+    plans: [
+      { months: 3, price: '₩400,000' },
+      { months: 6, price: '₩350,000' },
+    ],
     tags: ['24시간 전용', '사업자주소'],
     features: ['1.5인 독립 전용 룸 24시간', '사업자 주소 등록 가능', '무제한 음료 제공', '회의실 월 10시간 제공', '우편물 수령 서비스'],
   },
@@ -53,8 +70,12 @@ const rooms: Room[] = [
     description: '둘이 함께, 두 배의 시너지',
     image: 'https://work-and-share.vercel.app/img/photo-015.png',
     icon: 'ri-door-open-line',
-    price: '₩680,000',
+    price: '₩450,000',
     period: '/ 월 (2인 기준)',
+    plans: [
+      { months: 3, price: '₩500,000' },
+      { months: 6, price: '₩450,000' },
+    ],
     tags: ['24시간 전용', '사물함 2개'],
     features: ['2인 독립 전용 룸 24시간', '사업자 주소 등록 가능', '무제한 음료 제공', '회의실 월 12시간 제공', '전용 사물함 2개', '우편물·택배 수령'],
   },
@@ -66,10 +87,50 @@ const rooms: Room[] = [
     description: '소규모 팀을 위한 완벽한 독립 공간',
     image: 'https://work-and-share.vercel.app/img/photo-014.png',
     icon: 'ri-team-line',
-    price: '₩890,000',
+    price: '₩600,000',
     period: '/ 월 (3인 기준)',
+    plans: [
+      { months: 3, price: '₩650,000' },
+      { months: 6, price: '₩600,000' },
+    ],
     tags: ['24시간 전용', '사물함 3개'],
     features: ['3인 독립 전용 룸 24시간', '법인 주소 등록 지원', '무제한 음료 제공', '회의실 월 20시간 제공', '전용 사물함 3개', '우편물·택배 수령'],
+  },
+  {
+    id: 'open-seat',
+    group: 'floor2',
+    variant: 'open',
+    eyebrow: 'OPEN · 비고정 좌석',
+    badge: '오픈형',
+    tagEn: 'Open Seat',
+    title: '자유석',
+    description: '도서관처럼 조용히 몰입하는, 원하는 자리에 자유롭게 앉는 오픈 개인 좌석',
+    image: 'https://work-and-share.vercel.app/img/photo-020.png',
+    icon: 'ri-armchair-line',
+    price: '₩150,000',
+    period: '/ 월 (2층 오픈 좌석)',
+    tags: ['2층', '비고정 좌석'],
+    features: ['2층 도서관형 오픈 좌석(비고정)', '원하는 자리에 자유롭게 착석', '무제한 음료 제공', '고속 인터넷', '조용한 몰입 환경'],
+  },
+  {
+    id: 'glass-booth',
+    group: 'floor2',
+    variant: 'booth',
+    eyebrow: 'PRIVATE BOOTH · 1인 전용',
+    badge: '1인 전용',
+    tagEn: 'Glass Booth · 1P Room',
+    title: '1인실 · 유리부스',
+    description: '책상 1개, 의자 1개. 통유리 도어로 완전히 밀폐된 나만의 1인 전용 부스',
+    image: 'https://work-and-share.vercel.app/img/photo-019.png',
+    icon: 'ri-user-line',
+    price: '₩220,000',
+    period: '/ 월 (2층 유리부스)',
+    plans: [
+      { months: 3, price: '₩250,000' },
+      { months: 6, price: '₩220,000' },
+    ],
+    tags: ['2층', '1인 전용', '유리부스'],
+    features: ['1인 전용 책상 1개 · 통유리 밀폐 부스 24시간', '사업자 주소 등록 가능', '무제한 음료 제공', '회의실 월 8시간 제공', '우편물 수령 서비스'],
   },
   {
     id: 'working-room',
@@ -94,7 +155,7 @@ const rooms: Room[] = [
     icon: 'ri-presentation-line',
     price: '₩50,000',
     period: '/ 시간 (10-12인)',
-    tags: ['4K 화상회의', '시간 단위'],
+    tags: ['2층', '4K 화상회의', '시간 단위'],
     features: ['10-12인 대형 테이블', '4K 스크린 & 화상회의 장비', '화이트보드 제공', '무제한 음료 제공', '시간 단위 예약'],
   },
   {
@@ -147,6 +208,7 @@ export default function SpaceCuration() {
   const active = selected !== null ? rooms[selected] : null;
   const privateRooms = rooms.map((room, i) => ({ room, i })).filter(({ room }) => room.group === 'private');
   const sharedRooms = rooms.map((room, i) => ({ room, i })).filter(({ room }) => room.group === 'shared');
+  const floor2Rooms = rooms.map((room, i) => ({ room, i })).filter(({ room }) => room.group === 'floor2');
 
   const renderCard = ({ room, i }: { room: Room; i: number }) => (
     <button
@@ -199,21 +261,150 @@ export default function SpaceCuration() {
           ))}
         </div>
 
-        <div className="flex items-end justify-between pt-3 border-t border-background-200/30">
-          <div>
-            <div className="font-heading text-lg font-bold text-foreground-950 tracking-tight leading-none">
-              {room.price}
+        <div className="pt-3 border-t border-background-200/30">
+          {room.plans ? (
+            <div className="flex items-center justify-between gap-2">
+              <div className="flex items-center gap-3.5">
+                {room.plans.map((plan) => (
+                  <div key={plan.months}>
+                    <div className="font-heading text-sm font-bold text-foreground-950 tracking-tight leading-none">
+                      {plan.price}
+                    </div>
+                    <div className="text-foreground-500 text-[9px] mt-1">{plan.months}개월 · 월</div>
+                  </div>
+                ))}
+              </div>
+              <span className="flex items-center gap-0.5 text-primary-400 text-[11px] font-medium shrink-0">
+                자세히
+                <i className="ri-arrow-right-s-line text-sm" />
+              </span>
             </div>
-            <div className="text-foreground-500 text-[10px] mt-1">{room.period}</div>
-          </div>
-          <span className="flex items-center gap-0.5 text-primary-400 text-[11px] font-medium">
-            자세히
-            <i className="ri-arrow-right-s-line text-sm" />
-          </span>
+          ) : (
+            <div className="flex items-end justify-between">
+              <div>
+                <div className="font-heading text-lg font-bold text-foreground-950 tracking-tight leading-none">
+                  {room.price}
+                </div>
+                <div className="text-foreground-500 text-[10px] mt-1">{room.period}</div>
+              </div>
+              <span className="flex items-center gap-0.5 text-primary-400 text-[11px] font-medium">
+                자세히
+                <i className="ri-arrow-right-s-line text-sm" />
+              </span>
+            </div>
+          )}
+          {room.price !== '무료' && (
+            <div className="text-foreground-400 text-[9px] mt-1.5">* VAT 별도</div>
+          )}
         </div>
       </div>
     </button>
   );
+
+  const renderFloorCard = ({ room, i }: { room: Room; i: number }) => {
+    const isBooth = room.variant === 'booth';
+    return (
+      <button
+        key={room.id}
+        onClick={() => setSelected(i)}
+        className={`group text-left rounded-2xl overflow-hidden bg-background-50 transition-all duration-300 hover:-translate-y-1 shadow-none hover:shadow-xl hover:shadow-black/20 ${
+          isBooth
+            ? 'border border-primary-500/30 hover:border-primary-500/60'
+            : 'border-2 border-dashed border-accent-500/30 hover:border-accent-500/60'
+        }`}
+      >
+        <div className="relative aspect-[16/11] overflow-hidden">
+          <img
+            alt={room.title}
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
+            src={room.image}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/5 to-transparent" />
+
+          <span
+            className={`absolute top-3 left-3 px-2.5 py-1 rounded-full backdrop-blur-sm text-[10px] font-semibold uppercase tracking-wider border ${
+              isBooth
+                ? 'bg-primary-500/25 text-primary-200 border-primary-400/30'
+                : 'bg-accent-500/25 text-accent-200 border-accent-400/30'
+            }`}
+          >
+            {room.eyebrow}
+          </span>
+
+          {room.badge && (
+            <span className="absolute bottom-3 left-3 flex items-center gap-1 px-2.5 py-1 rounded-full bg-white/10 backdrop-blur-sm text-white text-[10px] font-medium border border-white/15">
+              <i className={`${room.icon} text-xs`} />
+              {room.badge}
+            </span>
+          )}
+
+          <span className="absolute top-3 right-3 w-7 h-7 rounded-full bg-black/40 backdrop-blur-sm border border-white/10 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity">
+            <i className="ri-zoom-in-line text-sm" />
+          </span>
+        </div>
+
+        <div className="p-4 sm:p-5">
+          <div className="flex items-center gap-2 mb-1.5">
+            <i className={`${room.icon} ${isBooth ? 'text-primary-400' : 'text-accent-400'} text-sm`} />
+            <h3 className="font-heading text-base font-semibold text-foreground-950">
+              {room.title}
+            </h3>
+          </div>
+          <p className="text-foreground-600 text-xs leading-relaxed mb-3">
+            {room.description}
+          </p>
+
+          <div className="flex flex-wrap gap-1.5 mb-4">
+            {room.tags.map((tag) => (
+              <span
+                key={tag}
+                className={`px-2 py-0.5 rounded-full text-[10px] font-medium ${
+                  isBooth ? 'bg-primary-500/10 text-primary-400' : 'bg-accent-500/10 text-accent-500'
+                }`}
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          <div className="pt-3 border-t border-background-200/30">
+            {room.plans ? (
+              <div className="flex items-center justify-between gap-2">
+                <div className="flex items-center gap-3.5">
+                  {room.plans.map((plan) => (
+                    <div key={plan.months}>
+                      <div className="font-heading text-sm font-bold text-foreground-950 tracking-tight leading-none">
+                        {plan.price}
+                      </div>
+                      <div className="text-foreground-500 text-[9px] mt-1">{plan.months}개월 · 월</div>
+                    </div>
+                  ))}
+                </div>
+                <span className="flex items-center gap-0.5 text-primary-400 text-[11px] font-medium shrink-0">
+                  자세히
+                  <i className="ri-arrow-right-s-line text-sm" />
+                </span>
+              </div>
+            ) : (
+              <div className="flex items-end justify-between">
+                <div>
+                  <div className="font-heading text-lg font-bold text-foreground-950 tracking-tight leading-none">
+                    {room.price}
+                  </div>
+                  <div className="text-foreground-500 text-[10px] mt-1">{room.period}</div>
+                </div>
+                <span className="flex items-center gap-0.5 text-accent-500 text-[11px] font-medium">
+                  자세히
+                  <i className="ri-arrow-right-s-line text-sm" />
+                </span>
+              </div>
+            )}
+            <div className="text-foreground-400 text-[9px] mt-1.5">* VAT 별도</div>
+          </div>
+        </div>
+      </button>
+    );
+  };
 
   return (
     <section id="curation" className="relative z-10 bg-background-50 py-16 md:py-24">
@@ -240,6 +431,27 @@ export default function SpaceCuration() {
         </Reveal>
         <Reveal delay={100} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-12">
           {privateRooms.map(renderCard)}
+        </Reveal>
+
+        {/* 2F highlight: open seat vs glass booth */}
+        <Reveal delay={125} className="mb-12">
+          <div className="rounded-3xl border border-background-200/30 bg-background-100/60 p-5 sm:p-7">
+            <div className="flex items-center gap-2.5 mb-1.5">
+              <span className="flex items-center justify-center w-7 h-7 rounded-lg bg-gradient-to-br from-primary-500 to-accent-500 text-white text-[11px] font-bold font-mono shrink-0">
+                2F
+              </span>
+              <h3 className="font-heading text-sm font-semibold text-foreground-950">
+                2층 · 오픈 스튜디오
+              </h3>
+            </div>
+            <p className="text-foreground-500 text-xs leading-relaxed mb-5 pl-9">
+              미팅룸과 같은 층, 완전히 다른 두 가지 몰입 방식 — 자유롭게 앉는 오픈 좌석과 완전히 밀폐된 1인 전용 유리부스
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              {floor2Rooms.map(renderFloorCard)}
+            </div>
+          </div>
         </Reveal>
 
         {/* Shared spaces */}
@@ -305,13 +517,38 @@ export default function SpaceCuration() {
                 {active.description}
               </p>
 
-              <div className="flex items-end justify-between mb-5 pb-5 border-b border-background-200/30">
-                <div>
-                  <div className="font-heading text-3xl font-bold text-foreground-950 tracking-tight">
-                    {active.price}
+              <div className="mb-5 pb-5 border-b border-background-200/30">
+                {active.plans ? (
+                  <>
+                    <div className="grid grid-cols-2 gap-3">
+                      {active.plans.map((plan) => (
+                        <div
+                          key={plan.months}
+                          className="rounded-xl bg-background-50 border border-background-200/40 px-4 py-3"
+                        >
+                          <div className="text-foreground-500 text-[11px] font-medium mb-1">
+                            {plan.months}개월 계약
+                          </div>
+                          <div className="font-heading text-2xl font-bold text-foreground-950 tracking-tight">
+                            {plan.price}
+                          </div>
+                          <div className="text-foreground-500 text-[11px] mt-0.5">/ 월</div>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="text-foreground-500 text-[11px] mt-2">* VAT 별도</div>
+                  </>
+                ) : (
+                  <div>
+                    <div className="font-heading text-3xl font-bold text-foreground-950 tracking-tight">
+                      {active.price}
+                    </div>
+                    <div className="text-foreground-500 text-xs mt-1">{active.period}</div>
+                    {active.price !== '무료' && (
+                      <div className="text-foreground-500 text-[11px] mt-2">* VAT 별도</div>
+                    )}
                   </div>
-                  <div className="text-foreground-500 text-xs mt-1">{active.period}</div>
-                </div>
+                )}
               </div>
 
               <ul className="space-y-2.5 mb-6">

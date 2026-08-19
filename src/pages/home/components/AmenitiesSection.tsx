@@ -55,7 +55,7 @@ const amenities: Amenity[] = [
 
 export default function AmenitiesSection() {
   return (
-    <section id="amenities" className="border-b border-ink bg-paper py-20 px-6 md:px-12">
+    <section id="amenities" className="border-b border-ink bg-[#e6e4dc] py-20 px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
         <Reveal className="mb-14 border-b border-ink pb-8">
           <span className="font-mono text-xs uppercase tracking-widest text-accent-secondary font-bold block mb-3">
@@ -73,17 +73,17 @@ export default function AmenitiesSection() {
           {amenities.map((item) => (
             <div
               key={item.index}
-              className="border border-ink bg-paper p-3 md:p-4 flex flex-col justify-between group hover:bg-paperHover transition-all duration-300 cursor-pointer"
+              className="border border-ink bg-white p-5 flex flex-col justify-between group hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.18)] transition-all duration-300 ease-out cursor-pointer relative z-10"
             >
               <div>
                 {/* Photo frame */}
-                <div className="relative aspect-[16/9] border border-ink overflow-hidden bg-ink">
+                <div className="relative aspect-[16/9] border border-ink overflow-hidden bg-ink mb-4">
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="w-full h-full object-cover grayscale opacity-90 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
+                    className="w-full h-full object-cover grayscale opacity-90 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
                   />
-                  <div className="absolute top-3 left-3 bg-paper px-3 py-1 border border-ink">
+                  <div className="absolute top-3 left-3 bg-paper px-3 py-1 border border-ink shadow-sm">
                     <span className="font-mono text-[10px] text-ink uppercase tracking-widest font-bold">
                       {item.index} / {item.tagEn}
                     </span>
@@ -91,8 +91,8 @@ export default function AmenitiesSection() {
                 </div>
 
                 {/* Content */}
-                <div className="pt-5 pb-2 px-1">
-                  <h3 className="font-sans text-xl font-bold text-ink mb-3">
+                <div>
+                  <h3 className="font-sans text-xl font-bold text-ink mb-3 group-hover:text-accent-primary transition-colors">
                     {item.title}
                   </h3>
                   <p className="font-sans text-xs text-ink/80 leading-relaxed">
@@ -101,8 +101,9 @@ export default function AmenitiesSection() {
                 </div>
               </div>
 
-              <div className="mt-4 px-4 py-3 border border-ink bg-paper font-mono text-[10px] uppercase text-ink/50 tracking-widest">
-                INCLUDED IN MEMBERSHIP
+              <div className="mt-4 px-4 py-3 border border-ink bg-paper font-mono text-[10px] uppercase text-ink/60 tracking-widest flex justify-between items-center">
+                <span>INCLUDED IN MEMBERSHIP</span>
+                <span className="group-hover:text-accent-primary font-bold group-hover:underline transition-all">VIEW →</span>
               </div>
             </div>
           ))}

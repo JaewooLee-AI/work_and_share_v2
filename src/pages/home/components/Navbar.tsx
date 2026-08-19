@@ -48,12 +48,12 @@ export default function Navbar() {
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex gap-8 font-mono text-xs uppercase tracking-widest text-ink font-bold">
+        <nav className="hidden lg:flex font-mono text-xs uppercase tracking-widest text-ink font-bold border border-ink">
           {navLinks.map((link) => (
             <button
               key={link.target}
               onClick={() => scrollTo(link.target)}
-              className="hover:text-accent-primary transition-colors border-b-2 border-transparent hover:border-accent-primary py-1"
+              className="px-5 py-3 border-r last:border-r-0 border-ink hover:bg-paperHover transition-colors"
             >
               {link.label}
             </button>

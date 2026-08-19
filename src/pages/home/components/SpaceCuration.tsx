@@ -200,7 +200,7 @@ export default function SpaceCuration() {
               className={`px-4 py-2 border border-ink transition-colors ${
                 activeTab === tab.id
                   ? 'bg-ink text-paper'
-                  : 'bg-paper text-ink hover:bg-ink/10'
+                  : 'bg-paper text-ink hover:bg-paperHover'
               }`}
             >
               {tab.label}

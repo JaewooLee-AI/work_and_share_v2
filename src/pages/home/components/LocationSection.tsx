@@ -105,7 +105,7 @@ export default function LocationSection() {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-mono text-xs uppercase bg-ink text-paper py-3 border border-ink text-center hover:bg-accent-primary transition-colors font-bold tracking-widest"
+                    className="font-mono text-xs uppercase bg-paper text-ink py-3 border border-ink text-center hover:bg-paperHover transition-colors font-bold tracking-widest"
                   >
                     {link.label} ↗
                   </a>

@@ -43,7 +43,7 @@ const infoItems = [
 
 export default function LocationSection() {
   return (
-    <section id="location" className="border-b border-ink bg-[#e6e4dc] py-20 px-6 md:px-12">
+    <section id="location" className="border-b border-ink bg-paper py-20 px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
         <Reveal className="mb-14 border-b border-ink pb-8">
           <span className="font-mono text-xs uppercase tracking-widest text-accent-secondary font-bold block mb-3">
@@ -59,7 +59,7 @@ export default function LocationSection() {
 
         <Reveal delay={100} className="grid grid-cols-12 gap-8">
           {/* Architectural Line Map Container (7 Columns) */}
-          <div className="col-span-12 lg:col-span-7 border border-ink bg-white p-2 flex flex-col justify-between hover:shadow-[0_20px_40px_rgba(0,0,0,0.15)] transition-all duration-300">
+          <div className="col-span-12 lg:col-span-7 border border-ink bg-paper p-2 flex flex-col justify-between hover:bg-[#dad7ce] hover:shadow-[0_20px_35px_rgba(0,0,0,0.14)] transition-all duration-300">
             <div className="relative min-h-[340px] md:min-h-[420px] bg-paper border border-ink overflow-hidden flex items-center justify-center p-8">
               {/* Architectural Grid Lines */}
               <svg
@@ -94,7 +94,7 @@ export default function LocationSection() {
             </div>
 
             {/* Map Link Buttons */}
-            <div className="p-6 bg-white">
+            <div className="p-6 bg-paper group-hover:bg-white transition-all duration-300 border-t border-ink">
               <span className="font-mono text-xs uppercase tracking-widest text-ink/60 font-bold block mb-4">
                 External Navigation Links
               </span>
@@ -119,7 +119,7 @@ export default function LocationSection() {
             {infoItems.map((item) => (
               <div
                 key={item.code}
-                className="border border-ink bg-white p-5 hover:-translate-y-1 hover:shadow-[0_12px_24px_rgba(0,0,0,0.14)] transition-all duration-300 ease-out cursor-pointer relative z-10"
+                className="border border-ink/40 hover:border-ink bg-paper hover:bg-white p-5 hover:shadow-[0_12px_24px_rgba(0,0,0,0.12)] transition-all duration-300 cursor-pointer"
               >
                 <span className="font-mono text-[10px] uppercase tracking-widest text-accent-primary font-bold block mb-1">
                   {item.code}

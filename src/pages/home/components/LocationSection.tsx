@@ -124,7 +124,7 @@ export default function LocationSection() {
                 <span className="font-mono text-[10px] uppercase tracking-widest text-accent-primary font-bold block mb-1">
                   {item.code}
                 </span>
-                <h4 className="font-serif text-lg font-bold text-ink mb-2">
+                <h4 className="font-sans text-lg font-bold text-ink mb-2">
                   {item.title}
                 </h4>
                 <p className="font-sans text-xs text-ink/80 leading-relaxed">

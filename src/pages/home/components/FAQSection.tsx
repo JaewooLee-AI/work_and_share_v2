@@ -69,7 +69,7 @@ export default function FAQSection() {
                     <span className="font-mono text-xs text-accent-primary font-bold">
                       {item.num}
                     </span>
-                    <span className="font-serif text-lg font-bold text-ink">
+                    <span className="font-sans text-lg font-bold text-ink">
                       {item.q}
                     </span>
                   </div>

@@ -317,7 +317,7 @@ export default function SpaceCuration() {
                 </div>
 
                 <div className="p-6">
-                  <h4 className="font-serif text-2xl font-bold text-ink mb-2">
+                  <h4 className="font-sans text-2xl font-bold text-ink mb-2">
                     {room.title}
                   </h4>
                   <p className="font-sans text-xs text-ink/75 leading-relaxed mb-4">
@@ -366,7 +366,7 @@ export default function SpaceCuration() {
                   <span className="font-mono text-xs uppercase tracking-widest text-accent-primary font-bold block mb-2">
                     {selected.tagEn}
                   </span>
-                  <h3 className="font-serif text-3xl md:text-4xl font-bold text-ink">
+                  <h3 className="font-sans text-3xl md:text-4xl font-bold text-ink">
                     {selected.title}
                   </h3>
                 </div>

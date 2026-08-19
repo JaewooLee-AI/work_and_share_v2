@@ -92,7 +92,7 @@ export default function AmenitiesSection() {
 
                 {/* Content */}
                 <div className="p-6">
-                  <h3 className="font-serif text-xl font-bold text-ink mb-3">
+                  <h3 className="font-sans text-xl font-bold text-ink mb-3">
                     {item.title}
                   </h3>
                   <p className="font-sans text-xs text-ink/80 leading-relaxed">

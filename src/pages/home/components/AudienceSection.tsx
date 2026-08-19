@@ -35,7 +35,7 @@ export default function AudienceSection() {
           <span className="font-mono text-xs uppercase tracking-widest text-accent-secondary font-bold block mb-3">
             01 / FOR WHOM
           </span>
-          <h2 className="font-serif text-4xl md:text-5xl font-bold text-ink tracking-tight">
+          <h2 className="font-sans text-4xl md:text-5xl font-bold text-ink tracking-tight">
             대학로에서 일하는 세 가지 방법
           </h2>
           <p className="font-sans text-ink/70 text-base mt-4 max-w-lg leading-relaxed">
@@ -66,7 +66,7 @@ export default function AudienceSection() {
               {/* Text Frame */}
               <div className="p-8 flex flex-col justify-between flex-grow">
                 <div>
-                  <h3 className="font-serif text-2xl font-bold text-ink mb-3 leading-snug">
+                  <h3 className="font-sans text-2xl font-bold text-ink mb-3 leading-snug">
                     {item.title}
                   </h3>
                   <p className="font-mono text-xs text-accent-primary uppercase tracking-widest font-bold mb-4">

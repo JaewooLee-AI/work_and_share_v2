@@ -16,8 +16,8 @@ export default {
         },
       },
       fontFamily: {
-        serif: ['"Playfair Display"', 'Pretendard', 'sans-serif'],
-        sans: ['Pretendard', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'Roboto', '"Helvetica Neue"', '"Segoe UI"', '"Apple SD Gothic Neo"', 'sans-serif'],
+        serif: ['"Playfair Display"', '"Pretendard Variable"', 'Pretendard', 'sans-serif'],
+        sans: ['"Pretendard Variable"', 'Pretendard', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'Roboto', '"Helvetica Neue"', '"Segoe UI"', '"Apple SD Gothic Neo"', 'sans-serif'],
         mono: ['"Space Mono"', 'monospace'],
       },
       letterSpacing: {

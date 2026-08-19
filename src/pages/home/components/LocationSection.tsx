@@ -119,7 +119,7 @@ export default function LocationSection() {
             {infoItems.map((item) => (
               <div
                 key={item.code}
-                className="bg-paper hover:bg-[#eae8e1] p-5 hover:shadow-[0_12px_24px_rgba(0,0,0,0.06)] transition-all duration-300 cursor-pointer"
+                className="bg-paper hover:bg-white p-6 hover:-translate-y-1.5 hover:shadow-[0_14px_30px_rgba(0,0,0,0.12)] border border-transparent hover:border-ink/10 transition-all duration-300 cursor-pointer"
               >
                 <span className="font-mono text-[10px] uppercase tracking-widest text-accent-primary font-bold block mb-1">
                   {item.code}

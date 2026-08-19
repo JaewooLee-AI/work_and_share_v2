@@ -73,25 +73,25 @@ export default function AmenitiesSection() {
           {amenities.map((item) => (
             <div
               key={item.index}
-              className="bg-paper hover:bg-[#eae8e1] p-3 md:p-4 flex flex-col justify-between group hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] transition-all duration-300 cursor-pointer relative"
+              className="bg-paper hover:bg-[#e0ddd2] p-5 md:p-7 flex flex-col justify-between group hover:shadow-[0_20px_40px_rgba(0,0,0,0.10)] transition-all duration-500 cursor-pointer relative"
             >
               <div>
-                {/* Photo frame */}
-                <div className="relative aspect-[16/9] overflow-hidden bg-ink mb-3">
+                {/* Photo frame with 3D Lift */}
+                <div className="relative aspect-[16/9] overflow-hidden bg-ink mb-4 group-hover:-translate-y-1 group-hover:shadow-md group-hover:scale-[1.02] transition-all duration-500">
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="w-full h-full object-cover grayscale opacity-90 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
+                    className="w-full h-full object-cover grayscale opacity-90 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
                   />
-                  <div className="absolute top-3 left-3 bg-paper px-3 py-1 border border-ink/20">
+                  <div className="absolute top-3 left-3 bg-paper px-3 py-1 border border-ink/20 shadow-sm">
                     <span className="font-mono text-[10px] text-ink uppercase tracking-widest font-bold">
                       {item.index} / {item.tagEn}
                     </span>
                   </div>
                 </div>
 
-                {/* Content: Unhovered = bg-transparent, Hovered = PURE WHITE */}
-                <div className="bg-transparent group-hover:bg-white p-5 transition-all duration-300">
+                {/* Content: 3D Pure White Elevation */}
+                <div className="bg-transparent group-hover:bg-white p-6 group-hover:-translate-y-2 group-hover:shadow-[0_14px_30px_rgba(0,0,0,0.12)] border border-transparent group-hover:border-ink/10 transition-all duration-300 ease-out">
                   <h3 className="font-sans text-xl font-bold text-ink mb-3 group-hover:text-accent-primary transition-colors">
                     {item.title}
                   </h3>

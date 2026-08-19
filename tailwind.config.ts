@@ -9,6 +9,7 @@ export default {
     extend: {
       colors: {
         paper: "#f4f3ee",
+        paperHover: "#e2e0d8",
         ink: "#1a1a1a",
         accent: {
           primary: "#8b2e28",

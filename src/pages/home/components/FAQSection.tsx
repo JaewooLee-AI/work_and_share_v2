@@ -58,11 +58,11 @@ export default function FAQSection() {
             return (
               <div
                 key={item.num}
-                className="border border-ink bg-paper transition-colors"
+                className="border border-ink bg-paper hover:bg-paperHover transition-all duration-300"
               >
                 <button
                   onClick={() => setOpen(isOpen ? null : i)}
-                  className="w-full flex items-center justify-between gap-4 text-left p-6 hover:bg-ink/5 transition-colors"
+                  className="w-full flex items-center justify-between gap-4 text-left p-6 transition-colors"
                   aria-expanded={isOpen}
                 >
                   <div className="flex items-center gap-4">

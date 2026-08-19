@@ -47,10 +47,10 @@ export default function AudienceSection() {
           {audiences.map((item) => (
             <div
               key={item.num}
-              className="border border-ink bg-paper flex flex-col justify-between group hover:border-accent-primary transition-colors"
+              className="border border-ink bg-paper p-3 md:p-4 flex flex-col justify-between group hover:bg-paperHover transition-all duration-300 cursor-pointer"
             >
               {/* Image Frame */}
-              <div className="relative aspect-[4/3] border-b border-ink overflow-hidden bg-ink">
+              <div className="relative aspect-[4/3] border border-ink overflow-hidden bg-ink">
                 <img
                   src={item.image}
                   alt={item.title}
@@ -64,7 +64,7 @@ export default function AudienceSection() {
               </div>
 
               {/* Text Frame */}
-              <div className="p-8 flex flex-col justify-between flex-grow">
+              <div className="pt-6 pb-2 px-2 flex flex-col justify-between flex-grow">
                 <div>
                   <h3 className="font-sans text-2xl font-bold text-ink mb-3 leading-snug">
                     {item.title}

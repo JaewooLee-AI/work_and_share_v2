@@ -73,11 +73,11 @@ export default function AmenitiesSection() {
           {amenities.map((item) => (
             <div
               key={item.index}
-              className="border border-ink bg-paper flex flex-col justify-between group hover:border-accent-primary transition-colors"
+              className="border border-ink bg-paper p-3 md:p-4 flex flex-col justify-between group hover:bg-paperHover transition-all duration-300 cursor-pointer"
             >
               <div>
                 {/* Photo frame */}
-                <div className="relative aspect-[16/9] border-b border-ink overflow-hidden bg-ink">
+                <div className="relative aspect-[16/9] border border-ink overflow-hidden bg-ink">
                   <img
                     src={item.image}
                     alt={item.title}
@@ -91,7 +91,7 @@ export default function AmenitiesSection() {
                 </div>
 
                 {/* Content */}
-                <div className="p-6">
+                <div className="pt-5 pb-2 px-1">
                   <h3 className="font-sans text-xl font-bold text-ink mb-3">
                     {item.title}
                   </h3>
@@ -101,7 +101,7 @@ export default function AmenitiesSection() {
                 </div>
               </div>
 
-              <div className="px-6 py-3 border-t border-ink bg-paper font-mono text-[10px] uppercase text-ink/50 tracking-widest">
+              <div className="mt-4 px-4 py-3 border border-ink bg-paper font-mono text-[10px] uppercase text-ink/50 tracking-widest">
                 INCLUDED IN MEMBERSHIP
               </div>
             </div>

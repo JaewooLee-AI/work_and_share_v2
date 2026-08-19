@@ -35,17 +35,19 @@ export default function GallerySection() {
           {track1Images.map((img, i) => (
             <div
               key={`t1-${i}`}
-              className="flex-shrink-0 w-72 sm:w-96 h-48 sm:h-64 border border-ink bg-ink relative mr-6 group overflow-hidden"
+              className="flex-shrink-0 w-72 sm:w-96 border border-ink bg-paper p-2 hover:bg-paperHover relative mr-6 group transition-all duration-300 cursor-pointer"
             >
-              <img
-                alt={img.label}
-                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
-                src={img.src}
-              />
-              <div className="absolute bottom-3 left-3 bg-paper px-3 py-1 border border-ink">
-                <span className="font-mono text-[10px] text-ink uppercase tracking-widest font-bold">
-                  {img.label}
-                </span>
+              <div className="relative w-full h-48 sm:h-64 border border-ink overflow-hidden bg-ink">
+                <img
+                  alt={img.label}
+                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                  src={img.src}
+                />
+                <div className="absolute bottom-3 left-3 bg-paper px-3 py-1 border border-ink">
+                  <span className="font-mono text-[10px] text-ink uppercase tracking-widest font-bold">
+                    {img.label}
+                  </span>
+                </div>
               </div>
             </div>
           ))}
@@ -58,17 +60,19 @@ export default function GallerySection() {
           {track2Images.map((img, i) => (
             <div
               key={`t2-${i}`}
-              className="flex-shrink-0 w-72 sm:w-96 h-48 sm:h-64 border border-ink bg-ink relative mr-6 group overflow-hidden"
+              className="flex-shrink-0 w-72 sm:w-96 border border-ink bg-paper p-2 hover:bg-paperHover relative mr-6 group transition-all duration-300 cursor-pointer"
             >
-              <img
-                alt={img.label}
-                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
-                src={img.src}
-              />
-              <div className="absolute bottom-3 left-3 bg-paper px-3 py-1 border border-ink">
-                <span className="font-mono text-[10px] text-ink uppercase tracking-widest font-bold">
-                  {img.label}
-                </span>
+              <div className="relative w-full h-48 sm:h-64 border border-ink overflow-hidden bg-ink">
+                <img
+                  alt={img.label}
+                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                  src={img.src}
+                />
+                <div className="absolute bottom-3 left-3 bg-paper px-3 py-1 border border-ink">
+                  <span className="font-mono text-[10px] text-ink uppercase tracking-widest font-bold">
+                    {img.label}
+                  </span>
+                </div>
               </div>
             </div>
           ))}

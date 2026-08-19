@@ -299,11 +299,11 @@ export default function SpaceCuration() {
           {filteredRooms.map((room) => (
             <div
               key={room.id}
-              className="border border-ink bg-paper flex flex-col justify-between hover:border-accent-primary transition-colors cursor-pointer group"
+              className="border border-ink bg-paper p-3 md:p-4 flex flex-col justify-between group hover:bg-paperHover transition-all duration-300 cursor-pointer"
               onClick={() => setSelected(room)}
             >
               <div>
-                <div className="relative aspect-[16/10] border-b border-ink overflow-hidden bg-ink">
+                <div className="relative aspect-[16/10] border border-ink overflow-hidden bg-ink">
                   <img
                     src={room.image}
                     alt={room.title}
@@ -316,7 +316,7 @@ export default function SpaceCuration() {
                   </div>
                 </div>
 
-                <div className="p-6">
+                <div className="pt-5 pb-2 px-1">
                   <h4 className="font-sans text-2xl font-bold text-ink mb-2">
                     {room.title}
                   </h4>
@@ -328,7 +328,7 @@ export default function SpaceCuration() {
                     {room.tags.map((t) => (
                       <span
                         key={t}
-                        className="font-mono text-[10px] uppercase border border-ink/40 px-2 py-0.5 text-ink/80"
+                        className="font-mono text-[10px] uppercase border border-ink/40 px-2 py-0.5 text-ink/80 bg-paper"
                       >
                         #{t}
                       </span>
@@ -337,7 +337,7 @@ export default function SpaceCuration() {
                 </div>
               </div>
 
-              <div className="px-6 py-4 border-t border-ink bg-paper flex items-center justify-between font-mono text-xs uppercase tracking-widest">
+              <div className="mt-4 px-4 py-3 border border-ink bg-paper flex items-center justify-between font-mono text-xs uppercase tracking-widest">
                 <div>
                   <span className="font-bold text-ink text-sm">{room.price}</span>
                   <span className="text-[10px] text-ink/60 block">{room.period}</span>

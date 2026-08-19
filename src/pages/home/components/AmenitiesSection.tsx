@@ -73,7 +73,7 @@ export default function AmenitiesSection() {
           {amenities.map((item) => (
             <div
               key={item.index}
-              className="bg-paper hover:bg-[#e0ddd2] p-5 md:p-7 flex flex-col justify-between group hover:shadow-[0_20px_40px_rgba(0,0,0,0.10)] transition-all duration-500 cursor-pointer relative"
+              className="bg-paper hover:bg-[#efece6] p-5 md:p-7 flex flex-col justify-between group hover:shadow-[0_15px_35px_rgba(0,0,0,0.06)] transition-all duration-500 cursor-pointer relative"
             >
               <div>
                 {/* Photo frame with 3D Lift */}

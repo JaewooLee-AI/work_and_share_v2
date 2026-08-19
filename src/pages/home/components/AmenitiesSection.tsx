@@ -73,17 +73,17 @@ export default function AmenitiesSection() {
           {amenities.map((item) => (
             <div
               key={item.index}
-              className="border border-ink/40 hover:border-ink bg-paper hover:bg-[#dad7ce] p-3 md:p-4 flex flex-col justify-between group hover:shadow-[0_20px_35px_rgba(0,0,0,0.14)] transition-all duration-300 cursor-pointer relative"
+              className="bg-paper hover:bg-[#eae8e1] p-3 md:p-4 flex flex-col justify-between group hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] transition-all duration-300 cursor-pointer relative"
             >
               <div>
                 {/* Photo frame */}
-                <div className="relative aspect-[16/9] border border-ink overflow-hidden bg-ink mb-3">
+                <div className="relative aspect-[16/9] overflow-hidden bg-ink mb-3">
                   <img
                     src={item.image}
                     alt={item.title}
                     className="w-full h-full object-cover grayscale opacity-90 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
                   />
-                  <div className="absolute top-3 left-3 bg-paper px-3 py-1 border border-ink shadow-sm">
+                  <div className="absolute top-3 left-3 bg-paper px-3 py-1 border border-ink/20">
                     <span className="font-mono text-[10px] text-ink uppercase tracking-widest font-bold">
                       {item.index} / {item.tagEn}
                     </span>
@@ -91,7 +91,7 @@ export default function AmenitiesSection() {
                 </div>
 
                 {/* Content: Unhovered = bg-transparent, Hovered = PURE WHITE */}
-                <div className="bg-transparent group-hover:bg-white p-5 border border-transparent group-hover:border-ink transition-all duration-300">
+                <div className="bg-transparent group-hover:bg-white p-5 transition-all duration-300">
                   <h3 className="font-sans text-xl font-bold text-ink mb-3 group-hover:text-accent-primary transition-colors">
                     {item.title}
                   </h3>
@@ -101,7 +101,7 @@ export default function AmenitiesSection() {
                 </div>
               </div>
 
-              <div className="mt-3 px-4 py-3 border border-ink bg-paper font-mono text-[10px] uppercase text-ink/60 tracking-widest flex justify-between items-center">
+              <div className="mt-3 px-4 py-3 border-t border-ink/10 bg-paper group-hover:bg-white transition-all duration-300 font-mono text-[10px] uppercase text-ink/60 tracking-widest flex justify-between items-center">
                 <span>INCLUDED IN MEMBERSHIP</span>
                 <span className="group-hover:text-accent-primary font-bold group-hover:underline transition-all">VIEW →</span>
               </div>

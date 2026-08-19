@@ -299,24 +299,24 @@ export default function SpaceCuration() {
           {filteredRooms.map((room) => (
             <div
               key={room.id}
-              className="border border-ink/40 hover:border-ink bg-paper hover:bg-[#dad7ce] p-3 md:p-4 flex flex-col justify-between group hover:shadow-[0_20px_35px_rgba(0,0,0,0.14)] transition-all duration-300 cursor-pointer relative"
+              className="bg-paper hover:bg-[#eae8e1] p-3 md:p-4 flex flex-col justify-between group hover:shadow-[0_15px_30px_rgba(0,0,0,0.06)] transition-all duration-300 cursor-pointer relative"
               onClick={() => setSelected(room)}
             >
               <div>
-                <div className="relative aspect-[16/10] border border-ink overflow-hidden bg-ink mb-3">
+                <div className="relative aspect-[16/10] overflow-hidden bg-ink mb-3">
                   <img
                     src={room.image}
                     alt={room.title}
                     className="w-full h-full object-cover grayscale opacity-90 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
                   />
-                  <div className="absolute top-3 left-3 bg-paper px-3 py-1 border border-ink shadow-sm">
+                  <div className="absolute top-3 left-3 bg-paper px-3 py-1 border border-ink/20">
                     <span className="font-mono text-[10px] text-ink uppercase tracking-widest font-bold">
                       {room.tagEn}
                     </span>
                   </div>
                 </div>
 
-                <div className="bg-transparent group-hover:bg-white p-5 border border-transparent group-hover:border-ink transition-all duration-300">
+                <div className="bg-transparent group-hover:bg-white p-5 transition-all duration-300">
                   <h4 className="font-sans text-2xl font-bold text-ink mb-2 group-hover:text-accent-primary transition-colors">
                     {room.title}
                   </h4>
@@ -328,7 +328,7 @@ export default function SpaceCuration() {
                     {room.tags.map((t) => (
                       <span
                         key={t}
-                        className="font-mono text-[10px] uppercase border border-ink/40 px-2 py-0.5 text-ink/80 bg-paper"
+                        className="font-mono text-[10px] uppercase border border-ink/20 px-2 py-0.5 text-ink/80 bg-paper"
                       >
                         #{t}
                       </span>
@@ -337,7 +337,7 @@ export default function SpaceCuration() {
                 </div>
               </div>
 
-              <div className="mt-3 px-4 py-3 border border-ink bg-paper flex items-center justify-between font-mono text-xs uppercase tracking-widest">
+              <div className="mt-3 px-4 py-3 border-t border-ink/10 bg-paper group-hover:bg-white transition-all duration-300 flex items-center justify-between font-mono text-xs uppercase tracking-widest">
                 <div>
                   <span className="font-bold text-ink text-sm">{room.price}</span>
                   <span className="text-[10px] text-ink/60 block">{room.period}</span>

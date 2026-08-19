@@ -1,38 +1,54 @@
 export default function HeroSection() {
+  const scrollTo = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
-    <section className="relative min-h-[560px] md:min-h-[680px] lg:min-h-[740px] overflow-hidden bg-background-50">
-      {/* Busy, energetic coworking meeting scene with warm dark overlay */}
-      <div className="absolute inset-0">
-        <img
-          alt="젊은 한국 남녀가 밝은 공간에서 활기차고 열정적으로 토론하며 협업하는 모습"
-          className="w-full h-full object-cover object-center"
-          src="https://images.unsplash.com/photo-1530099486328-e021101a494a?w=1600&h=1000&fit=crop&crop=faces&auto=format&q=80"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-background-50/75 via-background-50/25 to-background-50/5" />
-        {/* Top scrim so the nav stays legible against the bright photo */}
-        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-background-50/75 to-transparent" />
+    <section className="grid grid-cols-12 min-h-[90vh] border-b border-ink bg-paper">
+      {/* Text Panel: 7 Columns */}
+      <div className="col-span-12 md:col-span-7 flex flex-col justify-center px-6 md:px-16 py-20 md:py-24 border-r-0 md:border-r border-ink bg-paper relative">
+        {/* Monospaced Caption Badge */}
+        <p className="font-mono text-accent-secondary text-xs md:text-sm uppercase tracking-widest mb-8 border-b-2 border-ink inline-block w-max pb-2 font-bold">
+          Est. 2026 / Raw Workspace · Daehak-ro
+        </p>
+
+        {/* Serif Heading */}
+        <h1 className="font-serif text-5xl sm:text-6xl md:text-[7rem] leading-[0.9] font-bold text-ink break-keep">
+          Brilliant <br />
+          <span className="text-accent-primary italic">Minds.</span>
+          <br />
+          Raw Space.
+        </h1>
+
+        {/* Body Text */}
+        <p className="mt-10 max-w-lg font-sans text-base md:text-lg text-ink/80 leading-loose break-keep">
+          워크앤쉐어는 본질에 집중합니다. 과도한 장식을 덜어내고 거친 콘크리트와
+          빈티지 원목 가구로 완성된 이 공간에서, 당신의 비즈니스와 영감은 가장 순수한 형태로 발현됩니다.
+        </p>
+
+        {/* CTA Button */}
+        <div className="mt-12">
+          <button
+            onClick={() => scrollTo('cta')}
+            className="inline-block bg-ink text-paper font-mono uppercase text-xs md:text-sm tracking-widest px-8 md:px-10 py-5 hover:bg-accent-primary transition-colors border-2 border-ink hover:border-accent-primary font-bold"
+          >
+            Reserve Your Space
+          </button>
+        </div>
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-8 lg:px-12 h-full min-h-[560px] md:min-h-[680px] lg:min-h-[740px] flex items-end pb-16 md:pb-20 lg:pb-24 pt-14">
-        <div className="w-full max-w-3xl animate-hero-in">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-background-50/70 backdrop-blur-md border border-background-200/40 text-foreground-800 text-xs font-medium mb-6 shadow-sm">
-            <span className="w-1.5 h-1.5 rounded-full bg-primary-500" />
-            대학로 프리미엄 공유오피스 · 2026 GRAND OPEN
-          </div>
-
-          <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight leading-[1.12] text-foreground-950 mb-5 drop-shadow-sm">
-            대학로의{' '}
-            <em className="text-primary-500 not-italic">창조적 에너지</em>가
-            <br />
-            당신의 비전과 만나는 곳
-          </h1>
-
-          <p className="text-foreground-700 text-base sm:text-lg font-normal leading-relaxed mb-8 max-w-lg">
-            영감이 일상이 되는 공간, Work &amp; Share.
-            <br className="hidden sm:block" />
-            프리미엄 워크스페이스를 가장 먼저 경험하세요.
-          </p>
+      {/* Image Panel: 5 Columns (Full-bleed) */}
+      <div className="col-span-12 md:col-span-5 h-[50vh] md:h-auto relative overflow-hidden bg-ink">
+        <img
+          src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80"
+          alt="Vintage Coworking Space"
+          className="absolute inset-0 w-full h-full object-cover mix-blend-luminosity opacity-85 hover:mix-blend-normal hover:opacity-100 transition-all duration-700 ease-in-out cursor-pointer"
+        />
+        {/* Editorial Footnote Caption */}
+        <div className="absolute bottom-6 right-6 bg-paper px-4 py-2 border border-ink z-10">
+          <span className="font-mono text-xs text-ink uppercase tracking-widest font-bold">
+            Fig 1. Lounge Area
+          </span>
         </div>
       </div>
     </section>

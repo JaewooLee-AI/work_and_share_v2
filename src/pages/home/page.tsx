@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import AudienceSection from './components/AudienceSection';
@@ -12,17 +11,10 @@ import Footer from './components/Footer';
 import FloatingCTA from './components/FloatingCTA';
 
 export default function Home() {
-  useEffect(() => {
-    document.documentElement.classList.add('dark');
-    return () => {
-      document.documentElement.classList.remove('dark');
-    };
-  }, []);
-
   return (
-    <div className="min-h-screen bg-background-50 text-foreground-950 selection:bg-primary-500/20 selection:text-primary-400">
+    <div className="min-h-screen bg-paper text-ink selection:bg-accent-primary selection:text-paper font-sans tracking-tightest leading-relaxed overflow-x-hidden flex flex-col">
       <Navbar />
-      <main>
+      <main className="flex-grow">
         <HeroSection />
         <AudienceSection />
         <SpaceCuration />

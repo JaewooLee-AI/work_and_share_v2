@@ -1,96 +1,108 @@
 import Reveal from './Reveal';
 
 interface Amenity {
-  icon: string;
+  index: string;
+  tagEn: string;
   title: string;
   description: string;
   image: string;
-  objectPosition?: string;
 }
 
 const amenities: Amenity[] = [
   {
-    icon: 'ri-wifi-line',
-    title: '초고속 인터넷',
-    description: '기가급 유·무선 인터넷. 안정적인 연결로 끊김 없는 화상회의와 대용량 파일 전송을 지원합니다.',
+    index: '01',
+    tagEn: '1GBPS NETWORK',
+    title: '초고속 기가 유·무선 인터넷',
+    description: '이중화 구축된 대칭형 기가 비트 전용선. 끊김 없는 4K 화상회의와 대용량 파일 송수신 보장.',
     image: '/img/photo-022.png',
   },
   {
-    icon: 'ri-cup-line',
-    title: '무제한 음료 제공',
-    description: '고급 원두 커피머신, 다양한 차류, 탄산음료까지. 멤버십 이용 중 무제한으로 제공됩니다.',
+    index: '02',
+    tagEn: 'SPECIALTY COFFEE & BAR',
+    title: '무제한 에스프레소 & 음료 바',
+    description: '스페셜티 로스팅 원두 커피머신, 탄산음료, 프리미엄 차류를 24시간 무제한 무료 제공합니다.',
     image: '/img/photo-007.png',
-    objectPosition: '49% 68%',
   },
   {
-    icon: 'ri-printer-line',
-    title: '프린터 & 복합기',
-    description: '흑백·컬러 출력, 스캔, 팩스 기능을 갖춘 최신 복합기를 공용 공간에서 자유롭게 이용하세요.',
+    index: '03',
+    tagEn: 'MULTIFUNCTION PRINT',
+    title: '고속 컬러 복합기 & 출력소',
+    description: '흑백/컬러 초고속 출력, 스캔, 팩스 기능을 공용 스테이션에서 자유롭게 이용하세요.',
     image: '/img/photo-001.png',
   },
   {
-    icon: 'ri-vidicon-line',
-    title: '화상회의 장비',
-    description: '4K 웹캠, 노이즈 캔슬링 마이크, 대형 스크린이 갖춰진 회의실에서 전문적인 미팅을 진행하세요.',
+    index: '04',
+    tagEn: '4K CONFERENCE SYSTEM',
+    title: '전문 회의실 & 화상 장비',
+    description: '4K 웹캠, 노이즈 캔슬링 마이크, 대형 스크린이 완비된 대·중형 회의 공간 지원.',
     image: '/img/photo-005.png',
   },
   {
-    icon: 'ri-shield-check-line',
-    title: '24시간 보안',
-    description: '카드키 출입 시스템과 CCTV로 365일 24시간 안전한 업무 환경을 보장합니다.',
+    index: '05',
+    tagEn: '24/7 SECURITY ACCESS',
+    title: '365일 24시간 보안 출입',
+    description: '모바일/지문 인식 모션 스마트 출입 제어 시스템과 Full HD CCTV로 안전망 유지.',
     image: '/img/photo-012.png',
   },
   {
-    icon: 'ri-inbox-archive-line',
-    title: '우편물 수령',
-    description: '사업자 주소 등록 및 우편물·택배 수령 서비스를 제공합니다. 법인 설립에도 활용 가능합니다.',
+    index: '06',
+    tagEn: 'MAIL & ADDRESS SERVICE',
+    title: '우편물 수령 & 사업자 등록',
+    description: '신규 법인 및 1인 기업 사업자 주소지 등록 및 일일 전용 우편물/택배 알림 수령 서비스.',
     image: '/img/photo-007.png',
-    objectPosition: '58% 18%',
   },
 ];
 
 export default function AmenitiesSection() {
   return (
-    <section id="amenities" className="py-16 md:py-24 relative z-10 bg-background-100">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <Reveal className="mb-10">
-          <span className="text-primary-500 text-xs font-mono font-semibold tracking-widest uppercase block mb-3">
-            AMENITIES
+    <section id="amenities" className="border-b border-ink bg-paper py-20 px-6 md:px-12">
+      <div className="max-w-7xl mx-auto">
+        <Reveal className="mb-14 border-b border-ink pb-8">
+          <span className="font-mono text-xs uppercase tracking-widest text-accent-secondary font-bold block mb-3">
+            04 / AMENITIES &amp; INFRASTRUCTURE
           </span>
-          <h2 className="font-heading text-3xl sm:text-4xl font-semibold text-foreground-950 tracking-tight">
-            업무에 필요한<br />모든 것을 갖췄습니다
+          <h2 className="font-serif text-4xl md:text-5xl font-bold text-ink tracking-tight">
+            Raw Functionality
           </h2>
-          <p className="text-foreground-600 text-sm font-normal max-w-md leading-relaxed break-keep mt-3">
-            입실 첫날부터 바로 일할 수 있는 환경. 나머지는 Work &amp; Share가 준비합니다.
+          <p className="font-sans text-ink/70 text-base mt-4 max-w-lg leading-relaxed">
+            입실 첫날부터 업무에 바로 몰입할 수 있는 검증된 인프라.
           </p>
         </Reveal>
 
-        <Reveal delay={100} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <Reveal delay={100} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {amenities.map((item) => (
             <div
-              key={item.title}
-              className="group rounded-2xl overflow-hidden bg-background-50 border border-background-200/30 hover:border-primary-500/30 hover:-translate-y-1 transition-all duration-300 hover:shadow-xl hover:shadow-black/20"
+              key={item.index}
+              className="border border-ink bg-paper flex flex-col justify-between group hover:border-accent-primary transition-colors"
             >
-              <div className="relative aspect-[16/10] overflow-hidden">
-                <img
-                  alt={item.title}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
-                  style={{ objectPosition: item.objectPosition }}
-                  src={item.image}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background-50 via-background-50/5 to-black/10" />
+              <div>
+                {/* Photo frame */}
+                <div className="relative aspect-[16/9] border-b border-ink overflow-hidden bg-ink">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover grayscale opacity-90 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
+                  />
+                  <div className="absolute top-3 left-3 bg-paper px-3 py-1 border border-ink">
+                    <span className="font-mono text-[10px] text-ink uppercase tracking-widest font-bold">
+                      {item.index} / {item.tagEn}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="p-6">
+                  <h3 className="font-serif text-xl font-bold text-ink mb-3">
+                    {item.title}
+                  </h3>
+                  <p className="font-sans text-xs text-ink/80 leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
               </div>
 
-              <div className="px-5 pb-6">
-                <div className="relative -mt-7 mb-3 w-14 h-14 rounded-2xl bg-background-100 border border-background-200/50 shadow-lg shadow-black/30 flex items-center justify-center">
-                  <i className={`${item.icon} text-primary-400 text-2xl`} />
-                </div>
-                <h3 className="font-heading text-base font-semibold text-foreground-950 mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-foreground-600 text-xs leading-relaxed">
-                  {item.description}
-                </p>
+              <div className="px-6 py-3 border-t border-ink bg-paper font-mono text-[10px] uppercase text-ink/50 tracking-widest">
+                INCLUDED IN MEMBERSHIP
               </div>
             </div>
           ))}

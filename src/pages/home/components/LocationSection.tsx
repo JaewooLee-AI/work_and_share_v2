@@ -3,114 +3,133 @@ import Reveal from './Reveal';
 const mapQuery = encodeURIComponent('Work & Share 대학로 공유오피스');
 
 const mapLinks = [
-  { label: '카카오맵', href: `https://map.kakao.com/?q=${mapQuery}` },
-  { label: '네이버지도', href: `https://map.naver.com/p/search/${mapQuery}` },
-  { label: '구글맵', href: `https://www.google.com/maps/search/?api=1&query=${mapQuery}` },
+  { label: 'Kakao Map', href: `https://map.kakao.com/?q=${mapQuery}` },
+  { label: 'Naver Map', href: `https://map.naver.com/p/search/${mapQuery}` },
+  { label: 'Google Maps', href: `https://www.google.com/maps/search/?api=1&query=${mapQuery}` },
 ];
 
 const infoItems = [
-  { icon: 'ri-map-pin-line', title: '주소', desc: '서울특별시 종로구 대학로\n(정확한 주소는 추후 공개)' },
-  { icon: 'ri-subway-line', title: '지하철', desc: '4호선 혜화역 도보 5분\n1호선 종각역 버스 환승 10분' },
   {
-    icon: 'ri-walk-line',
-    title: '도보 안내',
-    desc: '① 혜화역 2번 출구로 나오기\n② 대학로 방향으로 직진, 도보 약 5분\n③ 마로니에공원을 지나 진입 (상세 위치는 사전예약자에게 개별 안내)',
+    code: '01 / ADDRESS',
+    title: '주소',
+    desc: '서울특별시 종로구 대학로 (혜화역 마로니에 공원 앞)',
   },
-  { icon: 'ri-bus-line', title: '버스', desc: '대학로 정류장 하차\n종로, 혜화 방면 다수 노선 이용 가능' },
-  { icon: 'ri-parking-line', title: '주차', desc: '건물 내 주차 가능 (유료)\n인근 마로니에 공원 공영주차장 이용' },
-  { icon: 'ri-time-line', title: '운영 시간', desc: '24시간 연중무휴\n(프라이빗 룸·코워킹 라운지 기준)' },
+  {
+    code: '02 / SUBWAY',
+    title: '지하철',
+    desc: '4호선 혜화역 2번 출구 도보 5분 / 1호선 종각역 버스 환승 10분',
+  },
+  {
+    code: '03 / WALKING',
+    title: '도보 안내',
+    desc: '혜화역 2번 출구 출차 → 대학로 방향 직진 300m → 마로니에 공원 맞은편 빌딩 진입',
+  },
+  {
+    code: '04 / BUS',
+    title: '버스 정류장',
+    desc: '대학로/마로니에공원 정류장 하차 (간선/지선 다수 노선 운행)',
+  },
+  {
+    code: '05 / PARKING',
+    title: '주차 안내',
+    desc: '건물 내 유료 주차 타워 이용 가능 / 인근 마로니에 공원 공영주차장 도보 2분',
+  },
+  {
+    code: '06 / HOURS',
+    title: '운영 시간',
+    desc: '24시간 연중무휴 (회원 스마트키 전용 출입 시스템)',
+  },
 ];
 
 export default function LocationSection() {
   return (
-    <section id="location" className="py-16 md:py-24 relative z-10 bg-background-50">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <Reveal className="mb-10">
-          <span className="text-primary-500 text-xs font-mono font-semibold tracking-widest uppercase block mb-3">
-            LOCATION
+    <section id="location" className="border-b border-ink bg-paper py-20 px-6 md:px-12">
+      <div className="max-w-7xl mx-auto">
+        <Reveal className="mb-14 border-b border-ink pb-8">
+          <span className="font-mono text-xs uppercase tracking-widest text-accent-secondary font-bold block mb-3">
+            05 / LOCATION &amp; ACCESS
           </span>
-          <h2 className="font-heading text-3xl sm:text-4xl font-semibold text-foreground-950 tracking-tight">
-            대학로 한복판,<br />최고의 위치
+          <h2 className="font-serif text-4xl md:text-5xl font-bold text-ink tracking-tight">
+            Daehak-ro Central
           </h2>
+          <p className="font-sans text-ink/70 text-base mt-4 max-w-lg leading-relaxed">
+            문화와 예술, 젊은 에너지가 공존하는 대학로 마로니에 공원 앞.
+          </p>
         </Reveal>
 
-        <Reveal delay={100} className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-          {/* Stylized line-art map placeholder */}
-          <div className="rounded-2xl bg-background-100 border border-background-200/30 overflow-hidden flex flex-col min-h-[380px]">
-            <div className="relative flex-1 min-h-[220px]">
+        <Reveal delay={100} className="grid grid-cols-12 gap-8">
+          {/* Architectural Line Map Container (7 Columns) */}
+          <div className="col-span-12 lg:col-span-7 border border-ink bg-paper flex flex-col justify-between">
+            <div className="relative min-h-[340px] md:min-h-[420px] bg-paper border-b border-ink overflow-hidden flex items-center justify-center p-8">
+              {/* Architectural Grid Lines */}
               <svg
                 viewBox="0 0 400 260"
-                className="absolute inset-0 w-full h-full text-foreground-300/25"
+                className="absolute inset-0 w-full h-full text-ink/20"
                 preserveAspectRatio="xMidYMid slice"
               >
-                <line x1="0" y1="60" x2="400" y2="60" stroke="currentColor" strokeWidth="2" />
-                <line x1="0" y1="150" x2="400" y2="150" stroke="currentColor" strokeWidth="2" />
-                <line x1="0" y1="215" x2="400" y2="215" stroke="currentColor" strokeWidth="1.5" />
-                <line x1="90" y1="0" x2="90" y2="260" stroke="currentColor" strokeWidth="2" />
-                <line x1="230" y1="0" x2="230" y2="260" stroke="currentColor" strokeWidth="1.5" />
-                <line x1="320" y1="0" x2="320" y2="260" stroke="currentColor" strokeWidth="2" />
-                <rect x="110" y="75" width="100" height="55" rx="4" stroke="currentColor" strokeWidth="1.5" fill="none" />
-                <rect x="250" y="20" width="55" height="30" rx="4" stroke="currentColor" strokeWidth="1.5" fill="none" />
-                <rect x="20" y="165" width="55" height="35" rx="4" stroke="currentColor" strokeWidth="1.5" fill="none" />
+                <line x1="0" y1="60" x2="400" y2="60" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" />
+                <line x1="0" y1="150" x2="400" y2="150" stroke="currentColor" strokeWidth="1" />
+                <line x1="0" y1="215" x2="400" y2="215" stroke="currentColor" strokeWidth="1" strokeDasharray="2 2" />
+                <line x1="90" y1="0" x2="90" y2="260" stroke="currentColor" strokeWidth="1" />
+                <line x1="230" y1="0" x2="230" y2="260" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" />
+                <line x1="320" y1="0" x2="320" y2="260" stroke="currentColor" strokeWidth="1" />
+                <rect x="110" y="75" width="100" height="55" stroke="currentColor" strokeWidth="1" fill="none" />
+                <rect x="250" y="20" width="55" height="30" stroke="currentColor" strokeWidth="1" fill="none" />
               </svg>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="relative flex flex-col items-center">
-                  <span className="absolute w-14 h-14 rounded-full bg-primary-500/30 hotspot-ping" />
-                  <div className="relative z-10 w-12 h-12 rounded-full bg-primary-500 text-white shadow-lg flex items-center justify-center">
-                    <i className="ri-map-pin-fill text-2xl" />
-                  </div>
-                  <span className="mt-3 px-3 py-1 rounded-full bg-background-50/90 border border-background-200/40 text-foreground-800 text-xs font-medium whitespace-nowrap">
-                    서울특별시 종로구 대학로
+
+              {/* Pin Hotspot */}
+              <div className="relative z-10 flex flex-col items-center">
+                <div className="w-16 h-16 bg-accent-primary text-paper flex items-center justify-center font-mono text-xs font-bold border border-ink mb-3 shadow-none">
+                  W&amp;S
+                </div>
+                <div className="bg-paper border border-ink px-4 py-2 text-center">
+                  <span className="font-mono text-xs text-ink uppercase tracking-widest font-bold block">
+                    Work &amp; Share Daehak-ro
+                  </span>
+                  <span className="font-sans text-[11px] text-ink/70">
+                    Hyehwa Station Exit 2 (Walk 5m)
                   </span>
                 </div>
               </div>
             </div>
 
-            <div className="p-5 border-t border-background-200/30">
-              <div className="flex flex-wrap items-center gap-2 mb-4">
-                <span className="px-3 py-1 rounded-full bg-background-200/50 text-foreground-700 text-xs font-medium">
-                  4호선 혜화역 5분
-                </span>
-                <span className="px-3 py-1 rounded-full bg-background-200/50 text-foreground-700 text-xs font-medium">
-                  마로니에공원 근처
-                </span>
-              </div>
-              <div className="grid grid-cols-3 gap-2">
+            {/* Map Link Buttons */}
+            <div className="p-6 bg-paper">
+              <span className="font-mono text-xs uppercase tracking-widest text-ink/60 font-bold block mb-4">
+                External Navigation Links
+              </span>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 {mapLinks.map((link) => (
                   <a
                     key={link.label}
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-1.5 py-2.5 rounded-xl bg-background-200/40 hover:bg-background-200/70 border border-background-200/30 text-foreground-800 text-xs font-medium transition-colors"
+                    className="font-mono text-xs uppercase bg-ink text-paper py-3 border border-ink text-center hover:bg-accent-primary transition-colors font-bold tracking-widest"
                   >
-                    <i className="ri-map-2-line text-sm text-primary-400" />
-                    {link.label}
+                    {link.label} ↗
                   </a>
                 ))}
               </div>
-              <p className="text-foreground-500 text-[11px] mt-3 text-center">
-                정확한 주소는 정식 오픈 시 지도에 업데이트됩니다
-              </p>
             </div>
           </div>
 
-          {/* Info cards */}
-          <div className="space-y-4">
+          {/* Info Details List (5 Columns) */}
+          <div className="col-span-12 lg:col-span-5 flex flex-col justify-between gap-4">
             {infoItems.map((item) => (
               <div
-                key={item.title}
-                className="flex items-start gap-4 p-4 rounded-xl bg-background-100 border border-background-200/30"
+                key={item.code}
+                className="border border-ink bg-paper p-6 hover:border-accent-primary transition-colors"
               >
-                <div className="w-10 h-10 rounded-lg bg-primary-500/10 flex items-center justify-center flex-shrink-0">
-                  <i className={`${item.icon} text-primary-400 text-lg`} />
-                </div>
-                <div>
-                  <h4 className="text-sm font-semibold text-foreground-950 mb-0.5">{item.title}</h4>
-                  <p className="text-xs text-foreground-600 leading-relaxed whitespace-pre-line">
-                    {item.desc}
-                  </p>
-                </div>
+                <span className="font-mono text-[10px] uppercase tracking-widest text-accent-primary font-bold block mb-1">
+                  {item.code}
+                </span>
+                <h4 className="font-serif text-lg font-bold text-ink mb-2">
+                  {item.title}
+                </h4>
+                <p className="font-sans text-xs text-ink/80 leading-relaxed">
+                  {item.desc}
+                </p>
               </div>
             ))}
           </div>

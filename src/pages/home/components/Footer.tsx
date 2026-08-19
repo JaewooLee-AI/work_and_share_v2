@@ -26,186 +26,138 @@ export default function Footer() {
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const spaceLinks = [
-    { label: '워킹룸', target: 'curation' },
-    { label: '1인실', target: 'curation' },
-    { label: '1.5인실', target: 'curation' },
-    { label: '2인실', target: 'curation' },
-    { label: '3인실', target: 'curation' },
-    { label: '10-12인 미팅룸', target: 'curation' },
-    { label: '다용도 라운지', target: 'curation' },
-  ];
-
-  const infoLinks = [
-    { label: '요금 안내', target: 'curation' },
-    { label: '오시는 길', target: 'location' },
-  ];
-
   return (
-    <footer className="bg-background-100 py-14 border-t border-background-200/30 text-foreground-600 text-xs">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 mb-10">
-          {/* Brand */}
-          <div className="md:col-span-5 space-y-3 text-left">
-            <div className="flex items-center gap-2">
-              <img
-                alt=""
-                aria-hidden="true"
-                className="h-8 w-auto object-contain"
-                src="/logo-mark.png"
-              />
-              <img
-                alt="WORK&SHARE"
-                className="h-7 w-auto object-contain"
-                src="https://storage.helloreaddy.io/project_files/df01f9da-e54f-4f02-86fd-548ac2df6d4c/61eb2397-913d-4efa-afb9-9946d70a5f1b_compressed_unnamed.webp"
-              />
-            </div>
-            <p className="text-foreground-600 font-normal leading-relaxed max-w-sm">
-              대학로의 창조적 에너지 속에서<br />
-              당신의 비전이 현실이 되는 공간.
-            </p>
-            <p className="text-foreground-500">
-              &copy; 2026 Work &amp; Share. All rights reserved.
-            </p>
-          </div>
-
-          {/* Spaces */}
-          <div className="md:col-span-3 space-y-2 text-left">
-            <h4 className="font-heading text-xs font-semibold text-foreground-950 uppercase tracking-wider mb-3">
-              공간
-            </h4>
-            <ul className="space-y-2">
-              {spaceLinks.map((item) => (
-                <li key={item.label}>
-                  <button
-                    onClick={() => scrollTo(item.target)}
-                    className="text-foreground-700 hover:text-foreground-950 transition-all hover:translate-x-0.5 text-left"
-                  >
-                    {item.label}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Info */}
-          <div className="md:col-span-4 space-y-2 text-left">
-            <h4 className="font-heading text-xs font-semibold text-foreground-950 uppercase tracking-wider mb-3">
-              정보
-            </h4>
-            <ul className="space-y-2">
-              {infoLinks.map((item) => (
-                <li key={item.label}>
-                  <button
-                    onClick={() => scrollTo(item.target)}
-                    className="text-foreground-700 hover:text-foreground-950 transition-all hover:translate-x-0.5 text-left"
-                  >
-                    {item.label}
-                  </button>
-                </li>
-              ))}
-              <li>
-                <button
-                  onClick={() => scrollTo('faq')}
-                  className="text-foreground-700 hover:text-foreground-950 transition-all hover:translate-x-0.5 text-left"
-                >
-                  자주 묻는 질문
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => setTermsOpen(true)}
-                  className="text-foreground-700 hover:text-foreground-950 transition-all hover:translate-x-0.5 text-left"
-                >
-                  이용 약관
-                </button>
-              </li>
-            </ul>
-          </div>
+    <footer className="bg-ink text-paper border-t border-ink pt-24 pb-12 px-6 md:px-12">
+      <div className="grid grid-cols-12 gap-8 border-b border-paper/30 pb-20">
+        {/* Slogan */}
+        <div className="col-span-12 md:col-span-8 flex flex-col justify-end">
+          <h2 className="font-serif text-5xl sm:text-6xl md:text-[5.5rem] leading-[0.95] font-bold text-paper break-keep">
+            Where Ideas <br />
+            <span className="italic text-accent-primary">Collide</span> &amp; Grow.
+          </h2>
+          <p className="mt-8 font-sans text-sm md:text-base text-paper/70 max-w-md leading-relaxed">
+            대학로의 창조적 에너지 속에서 당신의 비전을 현실로 바꾸는 공간.
+            과도한 장식을 배제하고 본질에 집중합니다.
+          </p>
         </div>
 
-        {/* Bottom bar */}
-        <div className="pt-6 border-t border-background-200/30 flex flex-col sm:flex-row items-center justify-between gap-2 text-foreground-500">
-          <span>서울특별시 종로구 대학로 · 혜화역 도보 5분</span>
-          <span>문의: contact@worknshare.kr</span>
+        {/* Links & Socials */}
+        <div className="col-span-12 md:col-span-4 font-mono text-xs uppercase tracking-widest flex flex-col gap-5 mt-12 md:mt-0 justify-end md:items-end">
+          <button
+            onClick={() => scrollTo('curation')}
+            className="hover:text-accent-primary border-b border-transparent hover:border-accent-primary pb-1 w-max transition-colors text-left"
+          >
+            Explore Spaces →
+          </button>
+          <button
+            onClick={() => scrollTo('location')}
+            className="hover:text-accent-primary border-b border-transparent hover:border-accent-primary pb-1 w-max transition-colors text-left"
+          >
+            Location &amp; Access →
+          </button>
+          <button
+            onClick={() => scrollTo('faq')}
+            className="hover:text-accent-primary border-b border-transparent hover:border-accent-primary pb-1 w-max transition-colors text-left"
+          >
+            FAQ &amp; Inquiries →
+          </button>
+          <a
+            href="mailto:contact@worknshare.kr"
+            className="hover:text-accent-primary border-b border-transparent hover:border-accent-primary pb-1 w-max transition-colors"
+          >
+            contact@worknshare.kr
+          </a>
         </div>
       </div>
 
-      {termsOpen && createPortal(
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-          <div
-            className="absolute inset-0 bg-black/70 backdrop-blur-sm animate-modal-backdrop"
-            onClick={() => setTermsOpen(false)}
-          />
+      {/* Credits & Legal */}
+      <div className="grid grid-cols-12 gap-6 mt-10 font-sans text-xs text-paper/60 uppercase tracking-widest">
+        <div className="col-span-12 md:col-span-4 flex flex-col gap-1">
+          <p className="font-bold text-paper/80">Work &amp; Share Inc.</p>
+          <p>Daehak-ro, Jongno-gu, Seoul</p>
+        </div>
+        <div className="col-span-12 md:col-span-4 flex flex-col gap-2">
+          <button
+            onClick={() => setTermsOpen(true)}
+            className="hover:text-paper text-left w-max border-b border-paper/30 pb-0.5"
+          >
+            Terms of Service &amp; Privacy Policy
+          </button>
+        </div>
+        <div className="col-span-12 md:col-span-4 md:text-right font-mono text-[11px] text-paper/50">
+          <p>&copy; {new Date().getFullYear()} WORK &amp; SHARE. ALL RIGHTS RESERVED.</p>
+        </div>
+      </div>
 
-          <div className="relative z-10 w-full max-w-xl max-h-[85vh] overflow-y-auto rounded-3xl bg-background-100 border border-background-200/40 shadow-2xl animate-modal-panel p-6 sm:p-8">
-            <div className="flex items-center justify-between mb-6">
-              <h3 className="font-heading text-xl font-semibold text-foreground-950">
-                이용약관 및 개인정보 처리방침 (요약)
-              </h3>
-              <button
-                onClick={() => setTermsOpen(false)}
-                aria-label="닫기"
-                className="w-9 h-9 rounded-full bg-background-200/40 hover:bg-background-200/70 flex items-center justify-center text-foreground-700 transition-colors flex-shrink-0"
-              >
-                <i className="ri-close-line text-lg" />
-              </button>
+      {/* Terms Modal */}
+      {termsOpen &&
+        createPortal(
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+            <div
+              className="absolute inset-0 bg-ink/80 backdrop-blur-sm"
+              onClick={() => setTermsOpen(false)}
+            />
+
+            <div className="relative z-10 w-full max-w-2xl max-h-[85vh] overflow-y-auto bg-paper text-ink border border-ink p-8 md:p-12">
+              <div className="flex items-center justify-between border-b border-ink pb-4 mb-6">
+                <h3 className="font-serif text-2xl font-bold">
+                  이용약관 및 개인정보 처리방침
+                </h3>
+                <button
+                  onClick={() => setTermsOpen(false)}
+                  aria-label="Close"
+                  className="font-mono text-xs uppercase border border-ink px-3 py-1 hover:bg-ink hover:text-paper transition-colors"
+                >
+                  Close [ESC]
+                </button>
+              </div>
+
+              <div className="space-y-6 text-sm leading-relaxed text-ink/90 font-sans">
+                <section className="border-b border-ink/20 pb-4">
+                  <h4 className="font-mono text-xs uppercase tracking-widest text-accent-primary mb-2 font-bold">
+                    01 / 사전예약의 성격
+                  </h4>
+                  <p>
+                    본 사이트를 통한 &quot;얼리버드 사전예약&quot;은 정식 계약이 아닌 입주 상담 신청입니다.
+                    실제 이용 계약, 결제 및 구체적 수수료 정책은 정식 오픈 시점에 별도 안내됩니다.
+                  </p>
+                </section>
+
+                <section className="border-b border-ink/20 pb-4">
+                  <h4 className="font-mono text-xs uppercase tracking-widest text-accent-primary mb-2 font-bold">
+                    02 / 개인정보 수집 및 이용
+                  </h4>
+                  <p>사전예약 상담 배정 및 오픈 소식 안내를 위하여 최소한의 개인정보를 수집합니다.</p>
+                  <ul className="list-disc list-inside mt-2 space-y-1 font-mono text-xs">
+                    <li>수집 항목: 성명, 이메일 주소, 관심 공간 유형</li>
+                    <li>보유 기간: 상담 배정 완료 시 또는 수집일로부터 1년 이내</li>
+                  </ul>
+                </section>
+
+                <section className="pb-2">
+                  <h4 className="font-mono text-xs uppercase tracking-widest text-accent-primary mb-2 font-bold">
+                    03 / 문의 및 접수
+                  </h4>
+                  <p>
+                    개인정보 관련 권리 행사 및 일반 문의는 아래 메일로 접수해 주시기 바랍니다.
+                    <br />
+                    <span className="font-mono font-bold text-ink">contact@worknshare.kr</span>
+                  </p>
+                </section>
+              </div>
+
+              <div className="mt-8 pt-4 border-t border-ink flex justify-end">
+                <button
+                  onClick={() => setTermsOpen(false)}
+                  className="font-mono text-xs uppercase bg-ink text-paper px-6 py-3 border border-ink hover:bg-accent-primary transition-colors"
+                >
+                  Confirm &amp; Close
+                </button>
+              </div>
             </div>
-
-            <div className="space-y-5 text-sm text-foreground-600 leading-relaxed">
-              <section>
-                <h4 className="font-heading text-sm font-semibold text-foreground-950 mb-1.5">
-                  1. 사전예약의 성격
-                </h4>
-                <p>
-                  본 사이트를 통한 &quot;얼리버드 사전예약&quot;은 정식 계약이 아닌 상담 및 안내 신청입니다.
-                  실제 이용 계약, 결제, 이용 약관은 Work &amp; Share 정식 오픈 시점에 별도로 체결됩니다.
-                </p>
-              </section>
-
-              <section>
-                <h4 className="font-heading text-sm font-semibold text-foreground-950 mb-1.5">
-                  2. 개인정보 수집 및 이용 목적
-                </h4>
-                <p>사전예약 상담, 오픈 일정 및 이벤트 안내를 위해 아래 정보를 수집합니다.</p>
-                <ul className="list-disc list-inside mt-1.5 space-y-0.5">
-                  <li>수집 항목: 이름, 연락처, 관심 공간</li>
-                  <li>보유 및 이용 기간: 상담 완료 또는 정식 오픈 후 최대 1년 이내 파기</li>
-                </ul>
-              </section>
-
-              <section>
-                <h4 className="font-heading text-sm font-semibold text-foreground-950 mb-1.5">
-                  3. 동의 거부 권리
-                </h4>
-                <p>
-                  개인정보 수집·이용에 대한 동의를 거부하실 수 있으며, 이 경우 사전예약 상담 진행이
-                  제한될 수 있습니다.
-                </p>
-              </section>
-
-              <section>
-                <h4 className="font-heading text-sm font-semibold text-foreground-950 mb-1.5">
-                  4. 문의처
-                </h4>
-                <p>
-                  개인정보 및 이용 관련 문의는{' '}
-                  <a href="mailto:contact@worknshare.kr" className="text-primary-400 hover:underline">
-                    contact@worknshare.kr
-                  </a>
-                  로 연락 주시기 바랍니다.
-                </p>
-              </section>
-
-              <p className="text-[11px] text-foreground-500 pt-2 border-t border-background-200/30">
-                본 요약본은 정식 오픈 전 사전예약 상담을 위한 안내이며, 세부 이용약관은 정식 오픈 시
-                갱신·고지됩니다.
-              </p>
-            </div>
-          </div>
-        </div>,
-        document.body
-      )}
+          </div>,
+          document.body
+        )}
     </footer>
   );
 }

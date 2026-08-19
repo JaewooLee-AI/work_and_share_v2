@@ -19,107 +19,85 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { label: '공간 / 요금', target: 'curation' },
-    { label: '시설', target: 'amenities' },
-    { label: '오시는 길', target: 'location' },
+    { label: 'Spaces', target: 'curation' },
+    { label: 'Audience', target: 'audience' },
+    { label: 'Amenities', target: 'amenities' },
+    { label: 'Location', target: 'location' },
     { label: 'FAQ', target: 'faq' },
   ];
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-background-50/90 backdrop-blur-xl border-b border-background-200/30'
-          : 'bg-transparent'
+      className={`sticky top-0 z-50 bg-paper border-b border-ink transition-colors duration-200 ${
+        scrolled ? 'bg-paper/95 backdrop-blur-md' : 'bg-paper'
       }`}
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-14">
+      <div className="flex justify-between items-center px-6 py-5 md:px-12">
+        {/* Brand */}
+        <div className="text-2xl md:text-3xl font-serif font-black uppercase tracking-tighter text-ink">
           <a
             href="#"
-            onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-            className="flex items-center gap-2 group"
+            onClick={(e) => {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            className="hover:text-accent-primary transition-colors"
           >
-            <img
-              alt=""
-              aria-hidden="true"
-              className="h-8 w-auto object-contain group-hover:scale-105 transition-transform"
-              src="/logo-mark.png"
-            />
-            <img
-              alt="WORK&SHARE"
-              className="h-7 w-auto object-contain group-hover:scale-105 transition-transform"
-              src="https://storage.helloreaddy.io/project_files/df01f9da-e54f-4f02-86fd-548ac2df6d4c/61eb2397-913d-4efa-afb9-9946d70a5f1b_compressed_unnamed.webp"
-            />
+            Work &amp; Share
           </a>
-
-          <nav className="hidden lg:flex items-center gap-6 text-xs font-medium text-foreground-700">
-            {navLinks.map((link) => (
-              <button
-                key={link.target}
-                onClick={() => scrollTo(link.target)}
-                className="hover:text-foreground-950 transition-colors"
-              >
-                {link.label}
-              </button>
-            ))}
-          </nav>
-
-          <div className="hidden lg:flex items-center gap-2">
-            <button
-              onClick={() => scrollTo('curation')}
-              className="inline-flex items-center px-5 py-2 rounded-full border border-background-200/60 text-foreground-800 hover:text-foreground-950 hover:border-background-200 text-xs font-medium transition-all whitespace-nowrap"
-            >
-              공간 둘러보기
-            </button>
-            <button
-              onClick={() => scrollTo('cta')}
-              className="inline-flex items-center px-5 py-2 rounded-full bg-primary-500 hover:bg-primary-600 text-white text-xs font-medium transition-all whitespace-nowrap"
-            >
-              얼리버드 사전 예약
-            </button>
-          </div>
-
-          <div className="flex lg:hidden items-center gap-2">
-            <button
-              onClick={() => setMobileOpen(!mobileOpen)}
-              className="p-1.5 rounded-lg text-foreground-700 hover:text-foreground-950"
-              aria-label="Toggle menu"
-            >
-              <div className="w-5 h-5 flex flex-col items-center justify-center gap-1">
-                <span className={`block w-4 h-0.5 bg-current transition-all ${mobileOpen ? 'rotate-45 translate-y-[3px]' : ''}`} />
-                <span className={`block w-4 h-0.5 bg-current transition-all ${mobileOpen ? '-rotate-45 -translate-y-[3px]' : ''}`} />
-              </div>
-            </button>
-          </div>
         </div>
+
+        {/* Desktop Navigation */}
+        <nav className="hidden lg:flex gap-8 font-mono text-xs uppercase tracking-widest text-ink font-bold">
+          {navLinks.map((link) => (
+            <button
+              key={link.target}
+              onClick={() => scrollTo(link.target)}
+              className="hover:text-accent-primary transition-colors border-b-2 border-transparent hover:border-accent-primary py-1"
+            >
+              {link.label}
+            </button>
+          ))}
+        </nav>
+
+        {/* CTA Button */}
+        <div className="hidden lg:block">
+          <button
+            onClick={() => scrollTo('cta')}
+            className="font-mono text-xs uppercase bg-ink text-paper px-6 py-3 border border-ink hover:bg-accent-primary hover:border-accent-primary transition-colors font-bold tracking-widest"
+          >
+            Book a Tour
+          </button>
+        </div>
+
+        {/* Mobile Hamburger Button */}
+        <button
+          onClick={() => setMobileOpen(!mobileOpen)}
+          className="lg:hidden font-mono text-xs uppercase border border-ink px-4 py-2 hover:bg-ink hover:text-paper transition-colors font-bold tracking-widest"
+          aria-label="Toggle menu"
+        >
+          {mobileOpen ? 'Close' : 'Menu'}
+        </button>
       </div>
 
+      {/* Mobile Navigation Drawer */}
       {mobileOpen && (
-        <div className="lg:hidden bg-background-50/95 backdrop-blur-xl border-t border-background-200/30 shadow-lg">
-          <div className="px-4 py-4 space-y-3">
-            {navLinks.map((link) => (
-              <button
-                key={link.target}
-                onClick={() => scrollTo(link.target)}
-                className="block w-full text-left text-sm font-medium text-foreground-700 hover:text-foreground-950 py-2"
-              >
-                {link.label}
-              </button>
-            ))}
+        <div className="lg:hidden bg-paper border-t border-ink px-6 py-6 space-y-4 font-mono text-xs uppercase tracking-widest font-bold">
+          {navLinks.map((link) => (
             <button
-              onClick={() => scrollTo('curation')}
-              className="block w-full text-left text-sm font-medium text-foreground-700 hover:text-foreground-950 py-2"
+              key={link.target}
+              onClick={() => scrollTo(link.target)}
+              className="block w-full text-left text-ink hover:text-accent-primary py-2 border-b border-ink/20"
             >
-              공간 둘러보기
+              {link.label}
             </button>
-            <button
-              onClick={() => scrollTo('cta')}
-              className="block w-full text-left text-sm font-medium text-primary-500 py-2"
-            >
-              얼리버드 사전 예약
-            </button>
-          </div>
+          ))}
+          <button
+            onClick={() => scrollTo('cta')}
+            className="block w-full text-center bg-ink text-paper py-3 border border-ink hover:bg-accent-primary transition-colors mt-4"
+          >
+            Book a Tour
+          </button>
         </div>
       )}
     </header>
